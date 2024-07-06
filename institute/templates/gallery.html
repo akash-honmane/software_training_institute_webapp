@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+</head>
+<body>
+   <div class="navbar">
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+            <a href="{{ url_for('about_us') }}" class="{% if request.endpoint == 'about us' %}active{% endif %}">About Us</a>
+            <a href="{{ url_for('course_programs') }}" class="{% if request.endpoint == 'course_programs' %}active{% endif %}">Courses</a>
+            <a href="{{ url_for('gallery') }}" class="{% if request.endpoint == 'gallery' %}active{% endif %}">Gallery</a>
+            <a href="{{ url_for('contact_us') }}" class="{% if request.endpoint == 'contact_us' %}active{% endif %}">Contact Us</a>
+            {% if not user %}
+                <a href="{{ url_for('dashboard') }}" class="{% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </div>
+        <div class="auth-links">
+            {% if  user %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="centered-text">
+        <h1>Gallery</h1>
+    </div>
+
+   <div class="container">
+        <p>Gallery content will go here.</p>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <p>&copy; 2024 Future Talent Academy. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; /* Align items horizontally */
+            align-items: center; /* Align items vertically */
+            padding: 10px 20px; /* Added padding to create space */
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #000;
+        }
+
+        .auth-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-links a {
+            color: #fff; /* font color white */
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.9;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        /* Profile container styles */
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Form styles */
+        .profile-container form div {
+            margin-bottom: 15px;
+        }
+
+        .profile-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .profile-container input, .profile-container textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .profile-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .profile-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+
+        </div>
+        <div class="auth-links">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.name.label }}<br>
+                {{ form.name(size=32) }}
+            </div>
+            <div>
+                {{ form.contact.label }}<br>
+                {{ form.contact(size=32) }}
+            </div>
+            <div>
+                {{ form.bio.label }}<br>
+                {{ form.bio(rows=5, cols=32) }}
+            </div>
+            <div>
+                {{ form.profile_picture.label }}<br>
+                <input type="file" name="profile_picture">
+            </div>
+            <div>
+                <input type="submit" value="Update Profile">
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <p>&copy; 2024 Future Talent Academy. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

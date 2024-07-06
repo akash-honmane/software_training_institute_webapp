@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <style>
+
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+    <script>
+        function redirectToEnquiryForm(course) {
+            const predefinedMessage = `I would like to enquire about the ${course} course.`;
+            const url = new URL(window.location.origin + "{{ url_for('home') }}");
+            url.searchParams.append('subject', `Enquiry about ${course}`);
+            url.searchParams.append('message', predefinedMessage);
+            window.location.href = url.toString();
+        }
+
+        function populateForm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const subject = urlParams.get('subject');
+            const message = urlParams.get('message');
+            if (subject) document.getElementById('subject').value = subject;
+            if (message) document.getElementById('message').value = message;
+        }
+
+        document.addEventListener('DOMContentLoaded', populateForm);
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about_us') }}">About Us</a>
+            <a href="{{ url_for('course_programs') }}">Courses</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('contact_us') }}">Contact Us</a>
+        </div>
+        <div class="auth-links">
+            {% if not user %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            {% else %}
+            <a href="{{ url_for('dashboard') }}" class="logout-btn">Dashboard</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="centered-text">
+        <h1>Welcome to Future Talent Academy</h1>
+    </div>
+    <video class="video" autoplay muted controls>
+        <source src="static/videos/intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="main-content">
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
+            {% if user %}
+            <p>Hello, <br>Welcome,  {{ user.name }}!</p>
+            {% endif %}
+
+            <center>
+                <h1>Our Popular Career Advancement Training Courses</h1>
+            </center>
+            <div class="course-section">
+                <div class="course-card">
+                    <img class="course-image" src="static/images/python.png" alt="Python Programming" />
+                    <h3>Python Programming</h3>
+                    <p>Duration: 3 Months</p>
+                    <p>All Delivery Methods Available: Yes</p>
+                    <button class="enquire-btn" onclick="redirectToEnquiryForm('Python Programming')">Enquire Now</button>
+                    <button class="enquire-btn" onclick="#">Enroll Now</button>
+                </div>
+                <div class="course-card">
+                    <img class="course-image" src="static/images/java.png" alt="Java Programming" />
+                    <h3>Java Programming</h3>
+                    <p>Duration: 5 Months</p>
+                    <p>All Delivery Methods Available: Yes</p>
+                    <button class="enquire-btn" onclick="redirectToEnquiryForm('Java Programming')">Enquire Now</button>
+                    <button class="enquire-btn" onclick="#">Enroll Now</button>
+                </div>
+                <div class="course-card">
+                    <img class="course-image" src="static/images/PHP.png" alt="PHP Programming" />
+                    <h3>PHP Programming</h3>
+                    <p>Duration: 4 Months</p>
+                    <p>All Delivery Methods Available: Yes</p>
+                    <button class="enquire-btn" onclick="redirectToEnquiryForm('HTML, CSS and JavaScript')">Enquire Now</button>
+                    <button class="enquire-btn" onclick="#">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div class="inquiry-form">
+            <h2>Submit an Enquiry</h2>
+            <form method="POST" action="{{ url_for('home') }}">
+                {{ form.hidden_tag() }}
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject" required>
+                <label for="message">Message:</label>
+                <textarea name="message" id="message" required></textarea>
+                <input type="submit" value="Submit an Enquiry">
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Future Talent Academy. All Rights Reserved.</p>
+    </div>
+</body>
+
+</html>

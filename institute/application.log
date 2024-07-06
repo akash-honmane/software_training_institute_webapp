@@ -1,0 +1,28 @@
+2024-06-25 11:45:16,320 - ERROR - Error submitting enquiry: (pymysql.err.IntegrityError) (1048, "Column 'course_id' cannot be null")
+[SQL: INSERT INTO enquiry (user_id, course_id, subject, message, timestamp) VALUES (%(user_id)s, %(course_id)s, %(subject)s, %(message)s, %(timestamp)s)]
+[parameters: {'user_id': 1, 'course_id': None, 'subject': 'Enquiry about Python Programming', 'message': 'I would like to enquire about the Python Programming course.', 'timestamp': datetime.datetime(2024, 6, 25, 6, 15, 16, 315696)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-06-28 15:39:11,184 - ERROR - Error submitting enquiry: (pymysql.err.IntegrityError) (1048, "Column 'course_id' cannot be null")
+[SQL: INSERT INTO enquiry (user_id, course_id, subject, message, timestamp) VALUES (%(user_id)s, %(course_id)s, %(subject)s, %(message)s, %(timestamp)s)]
+[parameters: {'user_id': 1, 'course_id': None, 'subject': 'Admission', 'message': 'akjjkd', 'timestamp': datetime.datetime(2024, 6, 28, 10, 9, 11, 161175)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-07-04 00:02:07,014 - ERROR - Error submitting enquiry: (pymysql.err.IntegrityError) (1048, "Column 'course_id' cannot be null")
+[SQL: INSERT INTO enquiry (user_id, course_id, subject, message, timestamp) VALUES (%(user_id)s, %(course_id)s, %(subject)s, %(message)s, %(timestamp)s)]
+[parameters: {'user_id': 1, 'course_id': None, 'subject': 'Enquiry about Python Programming', 'message': 'I would like to enquire about the Python Programming course.', 'timestamp': datetime.datetime(2024, 7, 3, 18, 32, 7, 5601)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-07-06 16:18:13,229 - ERROR - Error submitting enquiry: (pymysql.err.IntegrityError) (1048, "Column 'course_id' cannot be null")
+[SQL: INSERT INTO enquiry (user_id, course_id, subject, message, timestamp) VALUES (%(user_id)s, %(course_id)s, %(subject)s, %(message)s, %(timestamp)s)]
+[parameters: {'user_id': 1, 'course_id': None, 'subject': 'Addmission', 'message': 'hiie', 'timestamp': datetime.datetime(2024, 7, 6, 10, 48, 13, 193203)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-07-06 16:18:47,541 - ERROR - Error submitting enquiry: (pymysql.err.IntegrityError) (1048, "Column 'course_id' cannot be null")
+[SQL: INSERT INTO enquiry (user_id, course_id, subject, message, timestamp) VALUES (%(user_id)s, %(course_id)s, %(subject)s, %(message)s, %(timestamp)s)]
+[parameters: {'user_id': 1, 'course_id': None, 'subject': 'Addmission', 'message': 'hiie', 'timestamp': datetime.datetime(2024, 7, 6, 10, 48, 47, 540169)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-07-06 16:21:23,482 - ERROR - Error submitting enquiry: (pymysql.err.IntegrityError) (1048, "Column 'course_id' cannot be null")
+[SQL: INSERT INTO enquiry (user_id, course_id, subject, message, timestamp) VALUES (%(user_id)s, %(course_id)s, %(subject)s, %(message)s, %(timestamp)s)]
+[parameters: {'user_id': 1, 'course_id': None, 'subject': 'Addmission', 'message': 'hiie', 'timestamp': datetime.datetime(2024, 7, 6, 10, 51, 23, 480463)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-07-06 16:21:32,407 - ERROR - Error submitting enquiry: (pymysql.err.IntegrityError) (1048, "Column 'course_id' cannot be null")
+[SQL: INSERT INTO enquiry (user_id, course_id, subject, message, timestamp) VALUES (%(user_id)s, %(course_id)s, %(subject)s, %(message)s, %(timestamp)s)]
+[parameters: {'user_id': 1, 'course_id': None, 'subject': 'Addmission', 'message': 'Hii', 'timestamp': datetime.datetime(2024, 7, 6, 10, 51, 32, 405611)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Programs</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+            <a href="{{ url_for('about_us') }}" class="{% if request.endpoint == 'about us' %}active{% endif %}">About Us</a>
+            <a href="{{ url_for('course_programs') }}" class="{% if request.endpoint == 'course_programs' %}active{% endif %}">Courses</a>
+            <a href="{{ url_for('gallery') }}" class="{% if request.endpoint == 'gallery' %}active{% endif %}">Gallery</a>
+            <a href="{{ url_for('contact_us') }}" class="{% if request.endpoint == 'contact_us' %}active{% endif %}">Contact Us</a>
+        </div>
+        <div class="auth-links" style="float: right;">
+            {% if user %}
+            <a href="{{ url_for('dashboard') }}" class="{% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+        {% if not user %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+        </div>
+    </div>
+
+    <div class="container">
+        <center><h1>Courses</h1></center>
+
+        <!-- Popular Courses Section -->
+        <center><h1>The greatest choice of courses</h1></center>
+        <div class="course-section">
+            <div class="course-card">
+                <img class="course-image"  src="static/images/python.png" alt="Python Programming" />
+                <h3>Python Programming</h3>
+                <p>Duration: 3 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('Python Programming')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/java.png" alt="Java Programming" />
+                <h3>Java Programming</h3>
+                <p>Duration: 5 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('Java Programming')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/DotNet.png" alt="Dot Net" />
+                <h3>Dot Net</h3>
+                <p>Duration: 4 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('Dot Net')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/Data.png" alt="Data Analysis with Excel" />
+                <h3>Data Analysis with Excel</h3>
+                <p>Duration: 1 Day</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('Data Analysis with Excel')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/HCJ.png" alt="HTML, CSS and JavaScript" />
+                <h3>HTML, CSS and JavaScript</h3>
+                <p>Duration: 5 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('HTML, CSS and JavaScript')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+
+
+            <div class="course-card">
+                <img class="course-image"  src="static/images/Nodejs.png" alt="Node.js" />
+                <h3>Node.js</h3>
+                <p>Duration: 3 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('Node.js')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <img class="course-image"  src="static/images/Angular.png" alt="AngularJS Developer" />
+                <h3>AngularJS Developer</h3>
+                <p>Duration: 3 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('AngularJS Developer')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <img class="course-image"  src="static/images/ReactNative.png" alt="React Native Training" />
+                <h3>React Native Training</h3>
+                <p>Duration: 4 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('React Native Training')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/VBDotnet.png" alt="Visual Basic Programming For .NET" />
+                <h3>Visual Basic Programming For .NET</h3>
+                <p>Duration: 3 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('Visual Basic Programming For .NET')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/PHP.png" alt="PHP Programming" />
+                <h3>PHP Programming</h3>
+                <p>Duration: 3 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('PHP Programming')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/CsharpProgramming.png" alt="C# Programming" />
+                <h3>C# Programming (C Sharp)</h3>
+                <p>Duration: 4 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('C# Programming (C Sharp)')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+            <div class="course-card">
+                <img class="course-image"  src="static/images/CProgramming.png" alt="C Programming" />
+                <h3>C Programming</h3>
+                <p>Duration: 3 Months</p>
+                <p>All Delivery Methods Available: Yes</p>
+                <button class="enquire-btn" onclick="redirectToEnquiryForm('C Programming')">Enquire Now</button>
+                <button class="enquire-btn" onclick="#">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <p>&copy; 2024 Future Talent Academy. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

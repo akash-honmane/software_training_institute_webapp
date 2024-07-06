@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+<link rel="stylesheet" type="text/css" href="static/css/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+            <a href="{{ url_for('about_us') }}" class="{{ 'active' if request.endpoint == 'about_us' else '' }}">About Us</a>
+            <a href="{{ url_for('course_programs') }}" class="{{ 'active' if request.endpoint == 'course_programs' else '' }}">Courses</a>
+            <a href="{{ url_for('gallery') }}" class="{{ 'active' if request.endpoint == 'gallery' else '' }}">Gallery</a>
+            <a href="{{ url_for('contact_us') }}" class="{{ 'active' if request.endpoint == 'contact_us' else '' }}">Contact Us</a>
+
+        </div>
+         <div class="auth-links">
+            {% if user %}
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="centered-text">
+        <h1>Contact Us</h1>
+    </div>
+
+    <div class="container">
+        <p>Get in touch with us using the contact form below:</p>
+
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message"></textarea>
+            <input type="submit" value="Send">
+        </form>
+        <p>Or, you can contact us directly:</p>
+        <ul>
+            <li>Phone: +91 987 654 3210</li>
+            <li>Email: [info@futuretalentacademy.com](mailto:info@futuretalentacademy.com)</li>
+            <li>Address: 123 Main St, Anytown, India 12345</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Future Talent Academy. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
